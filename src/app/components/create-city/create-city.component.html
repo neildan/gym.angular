@@ -1,0 +1,31 @@
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-lg-6 col-md-6 col-sm-12 offset-lg-3 offset-md-3">
+            <div class="card">
+                <div class="card-header">
+                    <h4 class="text-center">{{ title }}</h4>
+                </div>
+                <div class="card-body">
+                    <form [formGroup]="cityForm" (ngSubmit)="addCity()">
+                        <div class="mb-3">
+                            <label for="name" class="form-label">Nombre</label>
+                            <input type="text" placeholder="Nombre Ciudad" name="name" class="form-control" formControlName="name">
+                            <div class="text-danger" *ngIf="cityForm.get('name')?.hasError('required') && cityForm.get('name')?.touched">
+                                <small>
+                                    El nombre de la ciudad <strong>es obligatorio</strong>
+                                </small>
+                            </div>
+                            <div class="text-danger" *ngIf="cityForm.get('name')?.hasError('minlength') && cityForm.get('name')?.touched">
+                                <small>
+                                    El nombre de la ciudad <strong>debe tener minimo 2 letras</strong>
+                                </small>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-primary float-end ml-1" [disabled]="cityForm.invalid">Guardar</button>
+                        <button type="button" routerLink="/" id="cancel-city" class="btn btn-secondary float-end">Cancelar</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
