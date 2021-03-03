@@ -7,30 +7,35 @@
                     <button class="btn btn-success float-end margin-button-create" routerLink="/create-site">Nuevo</button>
                 </div>
                 <div class="card-body text-center">
-                    <table *ngIf="listSites.length > 0; else elseSites" class="table table-striped mt2">
-                        <thead>
-                            <tr>
-                                <th scope="col">Nombre</th>
-                                <th scope="col">Ciudad</th>
-                                <th scope="col">Acciones</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr *ngFor="let site of listSites | paginate: { itemsPerPage: 10, currentPage: page}">
-                                <td>{{ site.address }}</td>
-                                <td>{{ (site.city) ? site.city.name : 'No hay ciudad' }}</td>
-                                <td>
-                                    <i [routerLink]="['/edit-site', site.id]" class="fas fa-edit text-primary"></i>
-                                    <i (click)="deleteSite(site.id)" class="fas fa-trash text-danger"></i>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
+                    <span *ngIf="listSites.length > 0; else elseSites">
+                        <table class="table table-striped mt2">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Nombre</th>
+                                    <th scope="col">Ciudad</th>
+                                    <th scope="col">Acciones</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let site of listSites | paginate: { itemsPerPage: 10, currentPage: page}">
+                                    <td>{{ site.address }}</td>
+                                    <td>{{ (site.city) ? site.city.name : 'No hay ciudad' }}</td>
+                                    <td>
+                                        <i [routerLink]="['/edit-site', site.id]" class="fas fa-edit text-primary"></i>
+                                        <i (click)="deleteSite(site.id)" class="fas fa-trash text-danger"></i>
+                                        <button class="btn btn-primary btn-sm button-clients"
+                                            [routerLink]="['/sites/users', site.id]">Clientes</button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <pagination-controls (pageChange)="page = $event" previousLabel="Anterior"
+                            nextLabel="Siguiente">
+                        </pagination-controls>
+                    </span>
                     <ng-template #elseSites>
                         <p class="text-start">No hay sedes disponibles</p>
                     </ng-template>
-                    <pagination-controls (pageChange)="page = $event" previousLabel="Anterior" nextLabel="Siguiente">
-                    </pagination-controls>
                 </div>
             </div>
         </div>

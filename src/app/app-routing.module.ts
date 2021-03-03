@@ -7,6 +7,7 @@ import { CreateSiteComponent } from './components/create-site/create-site.compon
 import { CreateUserComponent } from './components/create-user/create-user.component';
 import { HomeComponent } from './components/home/home.component';
 import { IndexCityComponent } from './components/index-city/index-city.component';
+import { IndexSiteUserComponent } from './components/index-site-user/index-site-user.component';
 import { IndexSiteComponent } from './components/index-site/index-site.component';
 import { IndexUserComponent } from './components/index-user/index-user.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
@@ -27,6 +28,7 @@ const routes: Routes = [
   { path: 'sites', component: IndexSiteComponent, canActivate: [AuthGuard]},
   { path: 'create-site', component: CreateSiteComponent, canActivate: [AuthGuard]},
   { path: 'edit-site/:id', component: CreateSiteComponent, canActivate: [AuthGuard]},
+  { path: 'sites/users/:id', component: IndexSiteUserComponent, canActivate: [AuthGuard]},
   { path: 'not-found', component: NotFoundComponent, canActivate: [AuthGuard]},
   { path: '**', redirectTo: 'not-found', pathMatch: 'full'}
 ];

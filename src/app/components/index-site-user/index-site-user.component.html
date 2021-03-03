@@ -3,8 +3,8 @@
         <div class="col-lg-12 col-md-12 col-sm-12">
             <div class="card">
                 <div class="card-header">
-                    <h4 class="text-center">Usuarios</h4>
-                    <button class="btn btn-success float-end margin-button-create" routerLink="/create-user">Nuevo</button>
+                    <h4 class="text-center">Clientes</h4>
+                    <button class="btn btn-primary float-end margin-button-create" routerLink="/sites">Atras</button>
                 </div>
                 <div class="card-body text-center">
                     <span *ngIf="listUsers.length > 0; else elseUsers">
@@ -14,9 +14,6 @@
                                     <th scope="col">Nombre</th>
                                     <th scope="col">Apellido</th>
                                     <th scope="col">Correo</th>
-                                    <th scope="col">Administrador</th>
-                                    <th scope="col">Sede</th>
-                                    <th scope="col">Acciones</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -24,12 +21,6 @@
                                     <td>{{ user.name }}</td>
                                     <td>{{ user.lastname }}</td>
                                     <td>{{ user.email }}</td>
-                                    <td>{{ (user.admin) ? 'Si' : 'No' }}</td>
-                                    <td>{{ (user.site) ? user.site.address : 'No hay sede' }}</td>
-                                    <td>
-                                        <i [routerLink]="['/edit-user', user.id]" class="fas fa-edit text-primary"></i>
-                                        <i (click)="deleteUser(user.id)" class="fas fa-trash text-danger"></i>
-                                    </td>
                                 </tr>
                             </tbody>
                         </table>
@@ -38,7 +29,7 @@
                         </pagination-controls>
                     </span>
                     <ng-template #elseUsers>
-                        <p class="text-start">No hay usuarios disponibles</p>
+                        <p class="text-start">No hay clientes disponibles</p>
                     </ng-template>
                 </div>
             </div>

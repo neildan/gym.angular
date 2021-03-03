@@ -21,6 +21,10 @@ export class SiteService {
     return this.http.get(this.url);
   }
 
+  getSitesUsers(id: string): Observable<any> {
+    return this.http.get(this.url + 'users/' + id)
+  }
+
   deleteSite(id: string): Observable<any> {
     return this.http.delete(this.url + id);
   }

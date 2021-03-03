@@ -7,28 +7,31 @@
                     <button class="btn btn-success float-end margin-button-create" routerLink="/create-city">Nuevo</button>
                 </div>
                 <div class="card-body text-center">
-                    <table *ngIf="listCities.length > 0; else elseCities" class="table table-striped mt2">
-                        <thead>
-                            <tr>
-                                <th scope="col">Nombre</th>
-                                <th scope="col">Acciones</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr *ngFor="let city of listCities | paginate: { itemsPerPage: 10, currentPage: page}">
-                                <td>{{ city.name }}</td>
-                                <td>
-                                    <i [routerLink]="['/edit-city', city.id]" class="fas fa-edit text-primary"></i>
-                                    <i (click)="deleteCity(city.id)" class="fas fa-trash text-danger"></i>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
+                    <span *ngIf="listCities.length > 0; else elseCities">
+                        <table class="table table-striped mt2">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Nombre</th>
+                                    <th scope="col">Acciones</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let city of listCities | paginate: { itemsPerPage: 10, currentPage: page}">
+                                    <td>{{ city.name }}</td>
+                                    <td>
+                                        <i [routerLink]="['/edit-city', city.id]" class="fas fa-edit text-primary"></i>
+                                        <i (click)="deleteCity(city.id)" class="fas fa-trash text-danger"></i>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <pagination-controls (pageChange)="page = $event" previousLabel="Anterior"
+                            nextLabel="Siguiente">
+                        </pagination-controls>
+                    </span>
                     <ng-template #elseCities>
                         <p class="text-start">No hay ciudades disponibles</p>
                     </ng-template>
-                    <pagination-controls (pageChange)="page = $event" previousLabel="Anterior" nextLabel="Siguiente">
-                    </pagination-controls>
                 </div>
             </div>
         </div>

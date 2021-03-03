@@ -26,6 +26,7 @@ import { NotFoundComponent } from './components/not-found/not-found.component';
 import { AuthGuard } from './guards/auth.guard';
 import { SecureInnerPagesGuard } from './guards/secure-inner-pages.guard';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { IndexSiteUserComponent } from './components/index-site-user/index-site-user.component';
 @NgModule({
   /** Components */
   declarations: [
@@ -40,7 +41,8 @@ import { NgxPaginationModule } from 'ngx-pagination';
     RegisterComponent,
     HomeComponent,
     CreateUserComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    IndexSiteUserComponent
   ],
   /** Modules */
   imports: [
