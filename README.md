@@ -14,7 +14,9 @@ Links de descarga:
 
 ## Correr Proyecto:
 Descargar este código con `git clone https://github.com/neildan/AdeccoWeb.git`
+
 Posicionarse en el proyecto y ejecutar los siguientes comandos:
+
 1. `npm install`
-2. `ng serve` for a dev server. Navigate to `http://localhost:4200/`
+2. `ng serve` para correr el servidor local: `http://localhost:4200/`
 
