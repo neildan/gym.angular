@@ -13,6 +13,8 @@ export class AppComponent {
     router.events.forEach((event) => {
       if (event instanceof NavigationStart) {
         if (
+          (event['url'] == '') ||
+          (event['url'] == '/') ||
           (event['url'] == '/login') ||
           (event['url'] == '/register')
         ) {
