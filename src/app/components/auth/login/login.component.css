@@ -1,0 +1,66 @@
+@font-face {
+    font-family: "Roboto-Bold";
+    src: url("../../../../assets/fonts/Roboto-Bold.ttf");
+}
+
+@font-face {
+    font-family: "Roboto-Regular";
+    src: url("../../../../assets/fonts/Roboto-Regular.ttf");
+}
+
+.h4 {
+    font-family: "Roboto-Bold";
+}
+
+.p,
+input,
+a,
+button {
+    font-family: "Roboto-Regular";
+}
+
+.background {
+    height: 100vh;
+    width: 100%;
+    background-image: url("../../../../assets/background.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 40px;
+    padding-bottom: 40px;
+}
+
+.img {
+    width: 200px;
+}
+
+.form-signin {
+    width: 100%;
+    max-width: 330px;
+    padding: 15px;
+    margin: 0 auto;
+}
+
+.form-signin .form-control {
+    height: 45px;
+}
+
+.card-login {
+    background: rgb(0, 0, 0) transparent;
+    background: rgba(0, 0, 0, 0.6);
+    filter: progid: DXImageTransform.Microsoft.gradient(startColorstr=#99000000, endColorstr=#99000000);
+    -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#99000000, endColorstr=#99000000)";
+}
+
+.class-error-validation {
+    margin-top: -0.5rem !important;
+    margin-bottom: .25rem!important;
+}
+
+.class-error-validation-password {
+    margin-top: -1rem !important;
+    margin-bottom: 1rem!important;
+}

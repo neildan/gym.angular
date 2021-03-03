@@ -1,0 +1,12 @@
+.fas {
+    font-size: 2rem;
+    color: #1b75bb;
+    margin-bottom: 1rem;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+    margin-left: 1rem;
+}

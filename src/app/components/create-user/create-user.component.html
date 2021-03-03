@@ -1,0 +1,108 @@
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-lg-6 col-md-6 col-sm-12 offset-lg-3 offset-md-3">
+            <div class="card">
+                <div class="card-header">
+                    <h4 class="text-center">{{ title }}</h4>
+                </div>
+                <div class="card-body">
+                    <form [formGroup]="userForm" (ngSubmit)="actionForm()">
+                        <div class="mb-3 row">
+                            <div class="col-lg-6 col-md-6 col-sm-12">
+                                <label for="name" class="form-label">Nombre</label>
+                                <input type="text" placeholder="Nombre" name="name" class="form-control" formControlName="name">
+                                <div class="text-danger" *ngIf="userForm.get('name')?.hasError('required') && userForm.get('name')?.touched">
+                                    <small>
+                                        El nombre <strong>es obligatorio</strong>
+                                    </small>
+                                </div>
+                                <div class="text-danger" *ngIf="userForm.get('name')?.hasError('minlength') && userForm.get('name')?.touched">
+                                    <small>
+                                        El nombre <strong>debe tener minimo 2 letras</strong>
+                                    </small>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-6 col-md-6 col-sm-12">
+                                <label for="lastname" class="form-label">Apellido</label>
+                                <input type="text" placeholder="Apellido" name="lastname" class="form-control" formControlName="lastname">
+                                <div class="text-danger" *ngIf="userForm.get('lastname')?.hasError('required') && userForm.get('lastname')?.touched">
+                                    <small>
+                                        El apellido <strong>es obligatorio</strong>
+                                    </small>
+                                </div>
+                                <div class="text-danger" *ngIf="userForm.get('lastname')?.hasError('minlength') && userForm.get('lastname')?.touched">
+                                    <small>
+                                        El apellido <strong>debe tener minimo 2 letras</strong>
+                                    </small>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-12 col-md-12 col-sm-12 mt-2">
+                                <label for="email" class="form-label">Correo</label>
+                                <input type="email" name="email" class="form-control" formControlName="email" placeholder="Correo" />
+                                <div class="text-danger" *ngIf="userForm.get('email')?.hasError('required') && userForm.get('email')?.touched">
+                                    <small>
+                                        El correo <strong>es obligatorio</strong>
+                                    </small>
+                                </div>
+                                <div class="text-danger" *ngIf="userForm.get('email')?.hasError('email') && userForm.get('email')?.touched">
+                                    <small>
+                                        El correo <strong>debe ser valido</strong>
+                                    </small>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-6 col-md-6 col-sm-12 mt-2">
+                                <label for="password" class="form-label">Contraseña</label>
+                                <input type="password" name="password" class="form-control" formControlName="password" placeholder="Contraseña" />
+                                <div class="text-danger" *ngIf="userForm.get('password')?.hasError('required') && userForm.get('password')?.touched">
+                                    <small>
+                                        La contraseña <strong>es obligatorio</strong>
+                                    </small>
+                                </div>
+                                <div class="text-danger" *ngIf="userForm.get('password')?.hasError('minlength') && userForm.get('password')?.touched">
+                                    <small>
+                                        La contraseña <strong>debe tener minimo 8 letras</strong>
+                                    </small>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-6 col-md-6 col-sm-12 mt-2">
+                                <label for="admin" class="form-label">Administrador</label>
+                                <select name="admin" formControlName="admin" class="form-control">
+                                    <option value="0" selected>No</option>
+                                    <option value="1">Si</option>
+                                </select>
+                                <div class="text-danger" *ngIf="userForm.get('admin')?.hasError('required') && userForm.get('admin')?.touched">
+                                    <small>
+                                        Debe seleccionar una opción <strong>es obligatorio</strong>
+                                    </small>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-12 col-md-12 col-sm-12 mt-2">
+                                <label for="siteId" class="form-label">Sede</label>
+                                <select name="siteId" formControlName="siteId" class="form-control">
+                                    <option [value]="item.id" *ngFor="let item of listSites">{{item.address}}</option>
+                                </select>
+                                <div class="text-danger" *ngIf="userForm.get('siteId')?.hasError('required') && userForm.get('siteId')?.touched">
+                                    <small>
+                                        La sede <strong>es obligatoria</strong>
+                                    </small>
+                                </div>
+                                <div class="text-danger" *ngIf="userForm.get('siteId')?.hasError('min') && userForm.get('siteId')?.touched">
+                                    <small>
+                                        Debe seleccionar una sede
+                                    </small>
+                                </div>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-primary float-end ml-1" [disabled]="userForm.invalid">Guardar</button>
+                        <button type="button" routerLink="/sites" class="btn btn-secondary float-end cancel-button-form">Cancelar</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,36 @@
+<div class="background text-center">
+    <div class="card card-login" style="width: 24rem;">
+        <form class="form-signin animated fadeIn" autocomplete="on" [formGroup]="loginForm" (ngSubmit)="login()">
+            <img class="mb-4 img" src="../../../../assets/logo.png" alt="logo" />
+            <h4 class="text-white mb-3 mt-1">Ingreso</h4>
+            <input type="email" class="form-control mb-2" formControlName="email" placeholder="Correo" />
+            <div class="text-danger text-start class-error-validation" *ngIf="loginForm.get('email')?.hasError('required') && loginForm.get('email')?.touched">
+                <small>
+                    El correo <strong>es obligatorio</strong>
+                </small>
+            </div>
+            <div class="text-danger text-start class-error-validation" *ngIf="loginForm.get('email')?.hasError('email') && loginForm.get('email')?.touched">
+                <small>
+                    El correo <strong>debe ser valido</strong>
+                </small>
+            </div>
+            <input type="password" class="form-control mb-3" formControlName="password" placeholder="Contraseña" />
+            <div class="text-danger text-start class-error-validation-password" *ngIf="loginForm.get('password')?.hasError('required') && loginForm.get('password')?.touched">
+                <small>
+                    La contraseña <strong>es obligatoria</strong>
+                </small>
+            </div>
+            <div class="text-danger text-start class-error-validation-password" *ngIf="loginForm.get('password')?.hasError('minlength') && loginForm.get('password')?.touched">
+                <small>
+                    El contraseña <strong>debe tener minimo 8 letras</strong>
+                </small>
+            </div>
+            <button type="submit" [disabled]="loginForm.invalid" class="btn btn-primary btn-block mb-2">
+                Ingresar
+            </button>
+            <br>
+            <a [routerLink]="['/register']">¿No tienes una cuenta?</a>
+            <p class="mt-4 mb-3 text-muted">© No Pain No Gain - 2021</p>
+        </form>
+    </div>
+</div>

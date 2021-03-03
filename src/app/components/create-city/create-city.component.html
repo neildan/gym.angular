@@ -6,7 +6,7 @@
                     <h4 class="text-center">{{ title }}</h4>
                 </div>
                 <div class="card-body">
-                    <form [formGroup]="cityForm" (ngSubmit)="addCity()">
+                    <form [formGroup]="cityForm" (ngSubmit)="actionForm()">
                         <div class="mb-3">
                             <label for="name" class="form-label">Nombre</label>
                             <input type="text" placeholder="Nombre Ciudad" name="name" class="form-control" formControlName="name">
@@ -22,7 +22,7 @@
                             </div>
                         </div>
                         <button type="submit" class="btn btn-primary float-end ml-1" [disabled]="cityForm.invalid">Guardar</button>
-                        <button type="button" routerLink="/" id="cancel-city" class="btn btn-secondary float-end">Cancelar</button>
+                        <button type="button" routerLink="/" class="btn btn-secondary float-end cancel-button-form">Cancelar</button>
                     </form>
                 </div>
             </div>

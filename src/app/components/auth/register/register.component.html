@@ -1,0 +1,74 @@
+<div class="background text-center">
+    <div class="card card-login" style="width: 24rem;">
+        <form class="form-signin animated fadeIn" autocomplete="on" [formGroup]="registerForm" (ngSubmit)="register()">
+            <img class="mb-4 img" src="../../../../assets/logo.png" alt="logo" />
+            <h4 class="text-white mb-3 mt-1">Registro</h4>
+            <input type="text" class="form-control mb-2" formControlName="name" placeholder="Nombre" />
+            <div class="text-danger text-start class-error-validation" *ngIf="registerForm.get('name')?.hasError('required') && registerForm.get('name')?.touched">
+                <small>
+                    El nombre <strong>es obligatorio</strong>
+                </small>
+            </div>
+            <div class="text-danger text-start class-error-validation" *ngIf="registerForm.get('name')?.hasError('minlength') && registerForm.get('name')?.touched">
+                <small>
+                    El nombre <strong>debe tener minimo 2 letras</strong>
+                </small>
+            </div>
+            <input type="text" class="form-control mb-2" formControlName="lastname" placeholder="Apellido" />
+            <div class="text-danger text-start class-error-validation" *ngIf="registerForm.get('lastname')?.hasError('required') && registerForm.get('lastname')?.touched">
+                <small>
+                    El apellido <strong>es obligatorio</strong>
+                </small>
+            </div>
+            <div class="text-danger text-start class-error-validation" *ngIf="registerForm.get('lastname')?.hasError('minlength') && registerForm.get('lastname')?.touched">
+                <small>
+                    El apellido <strong>debe tener minimo 2 letras</strong>
+                </small>
+            </div>
+            <input type="email" class="form-control mb-2" formControlName="email" placeholder="Correo" />
+            <div class="text-danger text-start class-error-validation" *ngIf="registerForm.get('email')?.hasError('required') && registerForm.get('email')?.touched">
+                <small>
+                    El correo <strong>es obligatorio</strong>
+                </small>
+            </div>
+            <div class="text-danger text-start class-error-validation" *ngIf="registerForm.get('email')?.hasError('email') && registerForm.get('email')?.touched">
+                <small>
+                    El correo <strong>debe ser valido</strong>
+                </small>
+            </div>
+            <input type="password" class="form-control mb-2" formControlName="password" placeholder="Contraseña" />
+            <div class="text-danger text-start class-error-validation" *ngIf="registerForm.get('password')?.hasError('required') && registerForm.get('password')?.touched">
+                <small>
+                    La contraseña <strong>es obligatoria</strong>
+                </small>
+            </div>
+            <div class="text-danger text-start class-error-validation" *ngIf="registerForm.get('password')?.hasError('minlength') && registerForm.get('password')?.touched">
+                <small>
+                    El contraseña <strong>debe tener minimo 8 letras</strong>
+                </small>
+            </div>
+            <input type="password" class="form-control mb-3" formControlName="password2" placeholder="Confirmar Contraseña" />
+            <div class="text-danger text-start class-error-validation-password" *ngIf="registerForm.get('password2')?.hasError('required') && registerForm.get('password2')?.touched">
+                <small>
+                    La contraseña <strong>es obligatoria</strong>
+                </small>
+            </div>
+            <div class="text-danger text-start class-error-validation-password" *ngIf="registerForm.get('password2')?.hasError('minlength') && registerForm.get('password2')?.touched">
+                <small>
+                    El contraseña <strong>debe tener minimo 8 letras</strong>
+                </small>
+            </div>
+            <div class="text-danger text-start class-error-validation-password" *ngIf="validationSamePasswords()">
+                <small>
+                    Las contraseñas <strong>no coinciden</strong>
+                </small>
+            </div>
+            <button type="submit" [disabled]="registerForm.invalid" class="btn btn-primary btn-block mb-2">
+                Registrarse
+            </button>
+            <br>
+            <a [routerLink]="['/login']">¿Ya tienes una cuenta?</a>
+            <p class="mt-4 mb-3 text-muted">© No Pain No Gain - 2021</p>
+        </form>
+    </div>
+</div>

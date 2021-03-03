@@ -15,7 +15,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr *ngFor="let city of listCities">
+                            <tr *ngFor="let city of listCities | paginate: { itemsPerPage: 10, currentPage: page}">
                                 <td>{{ city.name }}</td>
                                 <td>
                                     <i [routerLink]="['/edit-city', city.id]" class="fas fa-edit text-primary"></i>
@@ -27,6 +27,8 @@
                     <ng-template #elseCities>
                         <p class="text-start">No hay ciudades disponibles</p>
                     </ng-template>
+                    <pagination-controls (pageChange)="page = $event" previousLabel="Anterior" nextLabel="Siguiente">
+                    </pagination-controls>
                 </div>
             </div>
         </div>
