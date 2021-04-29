@@ -13,6 +13,7 @@ export class HeaderComponent implements OnInit {
 
   signOff() {
     console.log("Le di en sign off")
+    this.setLocalStorage('', 'admin');
     this.setLocalStorage('', 'username');
     this.setLocalStorage('', 'user-token');
     this.router.navigate(['/login']);

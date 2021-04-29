@@ -5,7 +5,6 @@ import { ToastrService } from 'ngx-toastr';
 import { AuthRegister } from 'src/app/models/authRegister';
 import { AuthService } from 'src/app/services/auth.service';
 import { HelperGlobalService } from 'src/app/services/helperGlobal.service';
-import { LocalService } from 'src/app/services/localService';
 
 @Component({
   selector: 'app-register',

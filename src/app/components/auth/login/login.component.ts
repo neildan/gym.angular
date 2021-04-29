@@ -39,6 +39,7 @@ export class LoginComponent implements OnInit {
       if (this._helperGlobal.validateFormApi(data)) {
         this.setLocalStorage(data.data.token, 'user-token');
         this.setLocalStorage(data.data.username, 'username');
+        this.setLocalStorage(data.data.admin, 'admin');
         this.toastr.success('Ingreso correctamente', '¡Proceso exitoso!');
         this.router.navigate(['home']);
       }

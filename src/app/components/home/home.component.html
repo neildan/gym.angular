@@ -8,7 +8,10 @@
                     </div>
                     <div class="card-body">
                         <p>
-                            Hola <b>{{ username }}</b> ahora eres parte del gimnasio "No Pain No Gain". <br> Actualmente estás en espera de asignación de sede. <br> Para más información no dudes en contactarte con:
+                            Hola <b>{{ username }}</b> ahora eres parte del gimnasio "No Pain No Gain". <br>
+                            <span *ngIf="admin">Eres administrador, puedes modificar el sistema a tu gusto.</span>
+                            <span *ngIf="!admin">Para nosotros es una placer atenderte ¡te esperamos!</span>
+                            <br> Para más información no dudes en contactarte con:
                         </p>
                         <i class="fas fa-envelope-open-text"></i> <a href="mailto:testdan1504@gmail.com">testdan1504@gmail.com</a> <br>
                         <i class="fas fa-desktop"></i> <a target="_blank" href="https://github.com/neildan?tab=repositories">Página Web</a> <br>
